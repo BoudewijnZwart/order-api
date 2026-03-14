@@ -20,6 +20,8 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "basedpyright>=1.38.2",
+    "debugpy>=1.8.20",
     "mypy>=1.19.1",
     "ruff>=0.15.5",
 ]
@@ -36,7 +38,9 @@ ignore = [
   "D203",	# incompatible
   "D212",
   "D213",
-  "D106"
+  "D106",
+  "COM812",      # incompatible
+  "D107",	# allow init methods without docstrings
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
