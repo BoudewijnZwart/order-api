@@ -1,11 +1,14 @@
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from pydantic import ValidationError
 
 from order_api import schemas
 from order_api.exceptions import OrderAlreadyExistsError
+
+if TYPE_CHECKING:
+    from decimal import Decimal
 
 
 class OrderRepository(ABC):
@@ -19,6 +22,7 @@ class OrderRepository(ABC):
     @abstractmethod
     def get_all_orders(self) -> list[schemas.Order]:
         """Return all the orders stored in memory."""
+        ...
 
 
 class OrderFilterBase(ABC):
@@ -89,3 +93,39 @@ class OrderService:
         # paginate
         orders_paginated = orders_sorted[offset : offset + limit]
         return schemas.OrderList(total=len(orders_paginated), orders=orders_paginated)
+
+    def get_stats(self) -> schemas.OrderSummary:
+        """Return stats about the orders."""
+        all_orders = self._repository.get_all_orders()
+
+        # calculate the total orders, total revenue and average order value
+        total_orders = len(all_orders)
+        total_revenue = sum(order.order_total for order in all_orders)
+        average_order_value = total_revenue / total_orders if total_orders > 0 else 0
+
+        # get the stats per category
+        orders_per_category: dict[str, int] = {}
+        revenue_per_category: dict[str, Decimal] = {}
+        categories = {item.category for order in all_orders for item in order.items}
+
+        for category in categories:
+            orders_per_category[category] = sum(
+                1
+                for order in all_orders
+                for item in order.items
+                if item.category == category
+            )
+            revenue_per_category[category] = sum(  # type: ignore[assignment]
+                item.quantity * item.unit_price
+                for order in all_orders
+                for item in order.items
+                if item.category == category
+            )
+
+        return schemas.OrderSummary(
+            total_orders=total_orders,
+            total_revenue=total_revenue,
+            average_order_value=average_order_value,
+            orders_per_category=orders_per_category,
+            revenue_per_category=revenue_per_category,
+        )

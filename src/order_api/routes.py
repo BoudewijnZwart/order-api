@@ -6,11 +6,13 @@ from order_api import schemas
 from order_api.dependencies import OrderFiltersDep, OrderServiceDep
 
 ORDERS_API_PREFIX = "/orders"
+STATS_API_PREFIX = "/stats"
 
-router = APIRouter(prefix=ORDERS_API_PREFIX)
+orders_router = APIRouter(prefix=ORDERS_API_PREFIX)
+stats_router = APIRouter(prefix=STATS_API_PREFIX)
 
 
-@router.post("/batch", response_model=schemas.FailedOrderSummary)
+@orders_router.post("/batch", response_model=schemas.FailedOrderSummary)
 def create_orders_in_batch(
     raw_orders: list[dict[Any, Any]], order_service: OrderServiceDep
 ) -> Any:
@@ -23,7 +25,7 @@ def create_orders_in_batch(
     return order_service.bulk_create(raw_orders=raw_orders)
 
 
-@router.get("/", response_model=schemas.OrderList)
+@orders_router.get("/", response_model=schemas.OrderList)
 def get_orders(
     order_service: OrderServiceDep,
     filters: OrderFiltersDep,
@@ -36,3 +38,9 @@ def get_orders(
         limit=limit,
         offset=offset,
     )
+
+
+@stats_router.get("/summary", response_model=schemas.OrderSummary)
+def get_order_summary(order_service: OrderServiceDep) -> Any:
+    """Endpoint to retrieve a summary of the orders."""
+    return order_service.get_stats()

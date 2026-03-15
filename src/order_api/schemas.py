@@ -56,3 +56,13 @@ class OrderList(BaseModel):
 
     total: int
     orders: list[Order]
+
+
+class OrderSummary(BaseModel):
+    """Summary of the orders."""
+
+    total_orders: int
+    total_revenue: Decimal
+    average_order_value: Decimal
+    orders_per_category: dict[str, int]
+    revenue_per_category: dict[str, Decimal]

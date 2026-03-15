@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 
-from order_api.routes import router
+from order_api.routes import orders_router, stats_router
 
 app = FastAPI()
-app.include_router(router)
+app.include_router(orders_router)
+app.include_router(stats_router)
 
 
 def main() -> None:
