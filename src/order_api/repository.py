@@ -7,12 +7,16 @@ class InternalMemoryRepository(OrderRepository):
     """Repository to store orders in-memory."""
 
     def __init__(self) -> None:
-        self.orders: dict[str, schemas.Order] = {}
+        self._orders: dict[str, schemas.Order] = {}
 
     def add_order(self, order: schemas.Order) -> None:
         """Add an order."""
         body = order.model_dump()
         key = body.pop("order_id")
-        if key in self.orders:
+        if key in self._orders:
             raise OrderAlreadyExistsError(order_id=key)
-        self.orders[key] = body
+        self._orders[key] = body
+
+    def get_all_orders(self) -> list[schemas.Order]:
+        """Return all the orders stored in memory."""
+        return list(self._orders.values())
