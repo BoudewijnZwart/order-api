@@ -17,3 +17,7 @@ the filtering should really be performed by the database.
 #### Sorting
 
 I added sorting because there is pagination. This makes it more reproducible.
+
+### Summary endpoint
+
+Normally I would implement a service for the summary that also gets the repository as a dependency. 

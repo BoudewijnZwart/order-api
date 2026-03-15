@@ -3,7 +3,7 @@ from typing import Any
 import pytest
 from fastapi.testclient import TestClient
 
-from order_api.routes import ORDERS_API_PREFIX
+from order_api.routes import ORDERS_API_PREFIX, STATS_API_PREFIX
 
 _TWO_VALID_ORDERS = [
     {
@@ -200,58 +200,119 @@ def test_order_validation_bulk_order_endpoint(
 
 @pytest.mark.parametrize(
     ("query_params", "expected_response"),
-        [
-            (
-                {
-                    "min_total": 10,
-                    "max_total": 200_000,
-                    "category": "electronics",
-                    "customer_id": "CUST-8834",
-                    "limit": 5,
-                    "offset": 0
-                }, {
-                        'orders': [
+    [
+        (
+            {
+                "min_total": 10,
+                "max_total": 200_000,
+                "category": "electronics",
+                "customer_id": "CUST-8834",
+                "limit": 5,
+                "offset": 0,
+            },
+            {
+                "orders": [
+                    {
+                        "currency": "USD",
+                        "customer_id": "CUST-8834",
+                        "items": [
                             {
-                    'currency': 'USD',
-                    'customer_id': 'CUST-8834',
-                    'items': [
-                        {
-                            'category': 'furniture',
-                            'quantity': 1,
-                            'sku': 'GAMING-CHAIR-PRO',
-                            'unit_price': '349.00',
-                        },
-                        {
-                            'category': 'electronics',
-                            'quantity': 1,
-                            'sku': 'GAMING-HEADSET-7.1',
-                            'unit_price': '89.99',
-                        },
-                        {
-                            'category': 'accessories',
-                            'quantity': 1,
-                            'sku': 'MOUSEPAD-XL',
-                            'unit_price': '29.99',
-                        },
-                    ],
-                    'order_id': 'ORD-0013',
-                    'order_timestamp': '2024-06-07T08:40:00Z',
-                    'order_total': '468.98',
-                },
-        ],
-        'total': 1 }),]
+                                "category": "furniture",
+                                "quantity": 1,
+                                "sku": "GAMING-CHAIR-PRO",
+                                "unit_price": "349.00",
+                            },
+                            {
+                                "category": "electronics",
+                                "quantity": 1,
+                                "sku": "GAMING-HEADSET-7.1",
+                                "unit_price": "89.99",
+                            },
+                            {
+                                "category": "accessories",
+                                "quantity": 1,
+                                "sku": "MOUSEPAD-XL",
+                                "unit_price": "29.99",
+                            },
+                        ],
+                        "order_id": "ORD-0013",
+                        "order_timestamp": "2024-06-07T08:40:00Z",
+                        "order_total": "468.98",
+                    },
+                ],
+                "total": 1,
+            },
+        ),
+    ],
 )
-def test_get_orders_endpoint(client: TestClient, demo_repository: None, query_params: dict[str, Any], expected_response: dict[str, Any]) -> None:
-    del demo_repository  # only neede for side-effect of clearing the cache before each test
+def test_get_orders_endpoint(
+    client: TestClient,
+    demo_repository: None,
+    query_params: dict[str, Any],
+    expected_response: dict[str, Any],
+) -> None:
+    del demo_repository  # only neede for side-effect
     # GIVEN a test client <client>
 
     # WHEN the get orders endpoint is called
-    response = client.get(
-        f"{ORDERS_API_PREFIX}/",
-        params=query_params)
+    response = client.get(f"{ORDERS_API_PREFIX}/", params=query_params)
 
     # THEN the response status code is 200
     assert response.status_code == 200
 
     # AND the correct response body is returned (empty list)
     assert response.json() == expected_response
+
+
+def test_get_stats_endpoint(client: TestClient, demo_repository: None) -> None:
+    # GIVEN a test client <client>
+
+    # AND a repository with some orders (see demo_repository fixture)
+    del demo_repository  # only neede for side-effect
+
+    # WHEN the get orders endpoint is called
+    response = client.get(f"{STATS_API_PREFIX}/summary")
+
+    # THEN the response status code is 200
+    assert response.status_code == 200
+
+    # AND the correct response body is returned (empty list)
+    assert response.json() == {
+        "average_order_value": "396.836",
+        "orders_per_category": {
+            "accessories": 4,
+            "apparel": 2,
+            "art supplies": 4,
+            "books": 2,
+            "electronics": 14,
+            "footwear": 1,
+            "furniture": 3,
+            "garden": 3,
+            "grocery": 3,
+            "health": 3,
+            "home": 2,
+            "kitchen": 3,
+            "sports": 4,
+            "toys": 3,
+            "travel": 4,
+        },
+        "revenue_per_category": {
+            "accessories": "179.96",
+            "apparel": "179.95",
+            "art supplies": "142.95",
+            "books": "144.85",
+            "electronics": "4113.82",
+            "footwear": "89.99",
+            "furniture": "1297.00",
+            "garden": "79.97",
+            "grocery": "167.47",
+            "health": "128.94",
+            "home": "84.95",
+            "kitchen": "882.99",
+            "sports": "144.97",
+            "toys": "83.96",
+            "travel": "214.95",
+        },
+        "total_orders": 20,
+        "total_revenue": "7936.72",
+    }
