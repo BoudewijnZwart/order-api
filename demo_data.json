@@ -1,0 +1,704 @@
+[
+    {
+        "order_id": "ORD-0001",
+        "customer_id": "CUST-1042",
+        "order_timestamp": "2025-03-01T08:15:00Z",
+        "items": [
+            {
+                "sku": "WIDGET-A1",
+                "quantity": 3,
+                "unit_price": "9.99",
+                "category": "Widgets"
+            },
+            {
+                "sku": "GADGET-B2",
+                "quantity": 1,
+                "unit_price": "49.99",
+                "category": "Gadgets"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0002",
+        "customer_id": "CUST-2381",
+        "order_timestamp": "2025-03-01T09:30:00Z",
+        "items": [
+            {
+                "sku": "CABLE-USB-C",
+                "quantity": 2,
+                "unit_price": "12.50",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0003",
+        "customer_id": "CUST-0091",
+        "order_timestamp": "2025-03-01T10:00:00Z",
+        "items": [
+            {
+                "sku": "MONITOR-27",
+                "quantity": 1,
+                "unit_price": "399.00",
+                "category": "Electronics"
+            },
+            {
+                "sku": "HDMI-CABLE",
+                "quantity": 2,
+                "unit_price": "8.99",
+                "category": "Accessories"
+            },
+            {
+                "sku": "DESK-MAT-L",
+                "quantity": 1,
+                "unit_price": "29.95",
+                "category": "Office"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0004",
+        "customer_id": "CUST-3774",
+        "order_timestamp": "2025-03-02T11:45:00Z",
+        "items": [
+            {
+                "sku": "KEYBOARD-MX",
+                "quantity": 1,
+                "unit_price": "119.00",
+                "category": "Peripherals"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0005",
+        "customer_id": "CUST-5510",
+        "order_timestamp": "2025-03-02T13:20:00Z",
+        "items": [
+            {
+                "sku": "MOUSE-PRO",
+                "quantity": 1,
+                "unit_price": "79.99",
+                "category": "Peripherals"
+            },
+            {
+                "sku": "MOUSE-PAD",
+                "quantity": 1,
+                "unit_price": "15.00",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0006",
+        "customer_id": "CUST-6623",
+        "order_timestamp": "2025-03-03T08:05:00Z",
+        "items": [
+            {
+                "sku": "LAPTOP-STAND",
+                "quantity": 2,
+                "unit_price": "34.99",
+                "category": "Office"
+            },
+            {
+                "sku": "USB-HUB-7P",
+                "quantity": 1,
+                "unit_price": "27.50",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0007",
+        "customer_id": "CUST-1199",
+        "order_timestamp": "2025-03-03T14:30:00Z",
+        "items": [
+            {
+                "sku": "WEBCAM-4K",
+                "quantity": 1,
+                "unit_price": "149.99",
+                "category": "Electronics"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0008",
+        "customer_id": "CUST-8801",
+        "order_timestamp": "2025-03-04T09:15:00Z",
+        "items": [
+            {
+                "sku": "HEADSET-BT",
+                "quantity": 1,
+                "unit_price": "89.00",
+                "category": "Audio"
+            },
+            {
+                "sku": "CARRY-CASE",
+                "quantity": 1,
+                "unit_price": "19.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0009",
+        "customer_id": "CUST-4432",
+        "order_timestamp": "2025-03-04T16:00:00Z",
+        "items": [
+            {
+                "sku": "CHAIR-ERGO",
+                "quantity": 1,
+                "unit_price": "549.00",
+                "category": "Furniture"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0010",
+        "customer_id": "CUST-7743",
+        "order_timestamp": "2025-03-05T07:50:00Z",
+        "items": [
+            {
+                "sku": "DESK-SIT-STAND",
+                "quantity": 1,
+                "unit_price": "799.00",
+                "category": "Furniture"
+            },
+            {
+                "sku": "CABLE-MGMT-KIT",
+                "quantity": 1,
+                "unit_price": "22.00",
+                "category": "Office"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0011",
+        "customer_id": "CUST-3301",
+        "order_timestamp": "2025-03-05T10:30:00Z",
+        "items": [
+            {
+                "sku": "SSD-1TB",
+                "quantity": 2,
+                "unit_price": "89.99",
+                "category": "Storage"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0012",
+        "customer_id": "CUST-2250",
+        "order_timestamp": "2025-03-06T11:00:00Z",
+        "items": [
+            {
+                "sku": "RAM-16GB",
+                "quantity": 4,
+                "unit_price": "44.50",
+                "category": "Components"
+            },
+            {
+                "sku": "THERMAL-PASTE",
+                "quantity": 1,
+                "unit_price": "7.99",
+                "category": "Components"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0013",
+        "customer_id": "CUST-9910",
+        "order_timestamp": "2025-03-06T13:45:00Z",
+        "items": [
+            {
+                "sku": "GPU-RTX-4070",
+                "quantity": 1,
+                "unit_price": "599.00",
+                "category": "Components"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0014",
+        "customer_id": "CUST-6617",
+        "order_timestamp": "2025-03-07T08:20:00Z",
+        "items": [
+            {
+                "sku": "PSU-850W",
+                "quantity": 1,
+                "unit_price": "129.99",
+                "category": "Components"
+            },
+            {
+                "sku": "ATX-CASE-MID",
+                "quantity": 1,
+                "unit_price": "89.00",
+                "category": "Components"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0015",
+        "customer_id": "CUST-5544",
+        "order_timestamp": "2025-03-07T15:10:00Z",
+        "items": [
+            {
+                "sku": "MONITOR-32-4K",
+                "quantity": 1,
+                "unit_price": "699.00",
+                "category": "Electronics"
+            },
+            {
+                "sku": "DISPLAY-PORT-CABLE",
+                "quantity": 1,
+                "unit_price": "11.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0016",
+        "customer_id": "CUST-1023",
+        "order_timestamp": "2025-03-08T09:00:00Z",
+        "items": [
+            {
+                "sku": "TABLET-PRO-11",
+                "quantity": 1,
+                "unit_price": "849.00",
+                "category": "Electronics"
+            },
+            {
+                "sku": "STYLUS-PEN",
+                "quantity": 1,
+                "unit_price": "99.00",
+                "category": "Accessories"
+            },
+            {
+                "sku": "TABLET-CASE",
+                "quantity": 1,
+                "unit_price": "39.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0017",
+        "customer_id": "CUST-3388",
+        "order_timestamp": "2025-03-08T12:30:00Z",
+        "items": [
+            {
+                "sku": "PHONE-STAND",
+                "quantity": 3,
+                "unit_price": "13.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0018",
+        "customer_id": "CUST-7712",
+        "order_timestamp": "2025-03-09T10:15:00Z",
+        "items": [
+            {
+                "sku": "DOCKING-STATION",
+                "quantity": 1,
+                "unit_price": "189.00",
+                "category": "Peripherals"
+            },
+            {
+                "sku": "CABLE-USB-C",
+                "quantity": 3,
+                "unit_price": "12.50",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0019",
+        "customer_id": "CUST-4401",
+        "order_timestamp": "2025-03-09T14:00:00Z",
+        "items": [
+            {
+                "sku": "NAS-4BAY",
+                "quantity": 1,
+                "unit_price": "349.00",
+                "category": "Storage"
+            },
+            {
+                "sku": "HDD-4TB",
+                "quantity": 4,
+                "unit_price": "79.99",
+                "category": "Storage"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0020",
+        "customer_id": "CUST-8899",
+        "order_timestamp": "2025-03-10T08:45:00Z",
+        "items": [
+            {
+                "sku": "SWITCH-8PORT",
+                "quantity": 1,
+                "unit_price": "59.99",
+                "category": "Networking"
+            },
+            {
+                "sku": "CAT6-CABLE-10M",
+                "quantity": 5,
+                "unit_price": "6.99",
+                "category": "Networking"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0021",
+        "customer_id": "CUST-2267",
+        "order_timestamp": "2025-03-10T11:20:00Z",
+        "items": [
+            {
+                "sku": "ROUTER-WIFI6",
+                "quantity": 1,
+                "unit_price": "229.00",
+                "category": "Networking"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0022",
+        "customer_id": "CUST-5531",
+        "order_timestamp": "2025-03-11T09:30:00Z",
+        "items": [
+            {
+                "sku": "WEBCAM-HD",
+                "quantity": 2,
+                "unit_price": "69.99",
+                "category": "Electronics"
+            },
+            {
+                "sku": "RING-LIGHT",
+                "quantity": 1,
+                "unit_price": "44.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0023",
+        "customer_id": "CUST-6645",
+        "order_timestamp": "2025-03-11T13:00:00Z",
+        "items": [
+            {
+                "sku": "MIC-USB-COND",
+                "quantity": 1,
+                "unit_price": "99.00",
+                "category": "Audio"
+            },
+            {
+                "sku": "MIC-BOOM-ARM",
+                "quantity": 1,
+                "unit_price": "35.00",
+                "category": "Audio"
+            },
+            {
+                "sku": "POP-FILTER",
+                "quantity": 1,
+                "unit_price": "9.99",
+                "category": "Audio"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0024",
+        "customer_id": "CUST-9988",
+        "order_timestamp": "2025-03-12T08:00:00Z",
+        "items": [
+            {
+                "sku": "SPEAKER-BT-S",
+                "quantity": 2,
+                "unit_price": "59.99",
+                "category": "Audio"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0025",
+        "customer_id": "CUST-1134",
+        "order_timestamp": "2025-03-12T10:45:00Z",
+        "items": [
+            {
+                "sku": "EARBUDS-TWS",
+                "quantity": 1,
+                "unit_price": "129.00",
+                "category": "Audio"
+            },
+            {
+                "sku": "CHARGING-CASE",
+                "quantity": 1,
+                "unit_price": "24.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0026",
+        "customer_id": "CUST-3356",
+        "order_timestamp": "2025-03-12T14:15:00Z",
+        "items": [
+            {
+                "sku": "SMART-PLUG-4PK",
+                "quantity": 2,
+                "unit_price": "29.99",
+                "category": "Smart Home"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0027",
+        "customer_id": "CUST-7780",
+        "order_timestamp": "2025-03-13T09:00:00Z",
+        "items": [
+            {
+                "sku": "SMART-BULB-E27",
+                "quantity": 6,
+                "unit_price": "12.99",
+                "category": "Smart Home"
+            },
+            {
+                "sku": "SMART-BRIDGE",
+                "quantity": 1,
+                "unit_price": "49.99",
+                "category": "Smart Home"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0028",
+        "customer_id": "CUST-4423",
+        "order_timestamp": "2025-03-13T11:30:00Z",
+        "items": [
+            {
+                "sku": "LAPTOP-BAG-15",
+                "quantity": 1,
+                "unit_price": "54.99",
+                "category": "Bags"
+            },
+            {
+                "sku": "POWER-BANK-20K",
+                "quantity": 1,
+                "unit_price": "49.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0029",
+        "customer_id": "CUST-6690",
+        "order_timestamp": "2025-03-13T16:00:00Z",
+        "items": [
+            {
+                "sku": "CHARGER-GAN-65W",
+                "quantity": 2,
+                "unit_price": "39.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0030",
+        "customer_id": "CUST-2215",
+        "order_timestamp": "2025-03-14T08:30:00Z",
+        "items": [
+            {
+                "sku": "SCREEN-PROTECTOR",
+                "quantity": 5,
+                "unit_price": "8.99",
+                "category": "Accessories"
+            },
+            {
+                "sku": "PHONE-CASE-MG",
+                "quantity": 2,
+                "unit_price": "19.99",
+                "category": "Accessories"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0031",
+        "customer_id": "CUST-8812",
+        "order_timestamp": "2025-03-14T10:00:00Z",
+        "items": [
+            {
+                "sku": "INVALID-QTY",
+                "quantity": -5,
+                "unit_price": "19.99",
+                "category": "Widgets"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0032",
+        "customer_id": "CUST-1177",
+        "order_timestamp": "2025-03-14T10:05:00Z",
+        "items": [
+            {
+                "sku": "NEGATIVE-PRICE",
+                "quantity": 2,
+                "unit_price": "-9.99",
+                "category": "Gadgets"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0033",
+        "customer_id": "CUST-5566",
+        "order_timestamp": "2025-03-14T10:10:00Z",
+        "items": [],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0034",
+        "customer_id": "CUST-3344",
+        "order_timestamp": "not-a-valid-timestamp",
+        "items": [
+            {
+                "sku": "WIDGET-A1",
+                "quantity": 1,
+                "unit_price": "9.99",
+                "category": "Widgets"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0035",
+        "customer_id": "CUST-9921",
+        "order_timestamp": "2025-03-14T10:20:00Z",
+        "items": [
+            {
+                "sku": "MISSING-FIELDS-ITEM",
+                "quantity": 2,
+                "category": "Gadgets"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0036",
+        "customer_id": "CUST-7756",
+        "order_timestamp": "2025-03-14T11:00:00Z",
+        "items": [
+            {
+                "sku": "PROJECTOR-4K",
+                "quantity": 1,
+                "unit_price": "999.00",
+                "category": "Electronics"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0037",
+        "customer_id": "CUST-3390",
+        "order_timestamp": "2025-03-14T12:30:00Z",
+        "items": [
+            {
+                "sku": "PRINTER-LASER",
+                "quantity": 1,
+                "unit_price": "279.00",
+                "category": "Office"
+            },
+            {
+                "sku": "TONER-BLACK",
+                "quantity": 2,
+                "unit_price": "34.99",
+                "category": "Office"
+            },
+            {
+                "sku": "A4-PAPER-500",
+                "quantity": 5,
+                "unit_price": "7.49",
+                "category": "Office"
+            }
+        ],
+        "currency": "EUR"
+    },
+    {
+        "order_id": "ORD-0038",
+        "customer_id": "CUST-6678",
+        "order_timestamp": "2025-03-15T08:10:00Z",
+        "items": [
+            {
+                "sku": "SCANNER-A4-USB",
+                "quantity": 1,
+                "unit_price": "179.00",
+                "category": "Office"
+            }
+        ],
+        "currency": "GBP"
+    },
+    {
+        "order_id": "ORD-0039",
+        "customer_id": "CUST-1156",
+        "order_timestamp": "2025-03-15T09:45:00Z",
+        "items": [
+            {
+                "sku": "WHITEBOARD-90",
+                "quantity": 1,
+                "unit_price": "89.99",
+                "category": "Office"
+            },
+            {
+                "sku": "MARKER-SET-12",
+                "quantity": 3,
+                "unit_price": "6.99",
+                "category": "Office"
+            }
+        ],
+        "currency": "USD"
+    },
+    {
+        "order_id": "ORD-0040",
+        "customer_id": "CUST-4489",
+        "order_timestamp": "2025-03-15T14:00:00Z",
+        "items": [
+            {
+                "sku": "ZERO-QTY-ITEM",
+                "quantity": 0,
+                "unit_price": "19.99",
+                "category": "Widgets"
+            }
+        ],
+        "currency": "USD"
+    }
+]

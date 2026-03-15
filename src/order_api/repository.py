@@ -12,11 +12,11 @@ class InternalMemoryRepository(OrderRepository):
     def add_order(self, order: schemas.Order) -> None:
         """Add an order."""
         body = order.model_dump()
-        key = body.pop("order_id")
+        key = body.get("order_id")
         if key in self._orders:
             raise OrderAlreadyExistsError(order_id=key)
         self._orders[key] = body
 
     def get_all_orders(self) -> list[schemas.Order]:
         """Return all the orders stored in memory."""
-        return list(self._orders.values())
+        return [schemas.Order(**order) for order in self._orders.values()]

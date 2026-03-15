@@ -22,6 +22,25 @@ podman build -t fastapi-app . && podman run -p 8000:8000 fastapi-app
 
 After starting the app, the swagger docs can then be viewed by visiting: `http://localhost:8000/docs` in a browser.
 
+## Demo data
+
+Claude created some demo data in the file `demo_data.json`. After starting the api this can be
+inserted into the "database" by running:
+
+```bash
+curl -X POST http://localhost:8000/orders/batch   -H "Content-Type: application/json"   -d @demo_data.json
+```
+. This demo data contains six wrong orders that will be rejected:
+
+| Order | Invalid reason |
+|---|---|
+| ORD-0031 | `quantity: -5` — violates `gt=0` |
+| ORD-0032 | `unit_price: -9.99` — violates `ge=0` |
+| ORD-0033 | `items: []` — violates `min_length=1` |
+| ORD-0034 | `order_timestamp` is not a valid datetime |
+| ORD-0035 | `unit_price` field missing from item |
+| ORD-0040 | `quantity: 0` — violates `gt=0` (strictly greater than) |
+
 ## Tests
 
 To support the code, some integration tests have been written. These can be executed by running:
