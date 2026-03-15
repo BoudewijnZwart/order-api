@@ -1,14 +1,44 @@
 # Order API
 
+# Running the API
+
+The app can be started with:
+
+```bash
+uv run python -m order_api.main
+```
+. UV is required to install the dependencies and run the app. Alteratively, the
+app can be run using Podman/Docker. UV is then not necessary.
+
+**Docker**
+```bash
+docker build -t fastapi-app . && docker run -p 8000:8000 fastapi-app
+```
+
+**Podman**
+```bash
+podman build -t fastapi-app . && podman run -p 8000:8000 fastapi-app
+```
+
+After starting the app, the swagger docs can then be viewed by visiting: `http://localhost:8000/docs` in a browser.
+
+## Tests
+
+To support the code, some integration tests have been written. These can be executed by running:
+
+```bash
+uv run pytest
+```
+
 ## Design considerations
 
 ### GET endpoint
 
-Create a schema including the total number of returned orders for a possible frontend later.
+I created a schema for the return type of the get orders endpoint that includes the total number of returned orders. This could be nice for a possible frontend later.
 
 #### Filtering
 
-Delegate the filtering to a filter class. Makes is easier to change later. The filters all called by the
+Delegate the filtering to a filter class. Makes is easier to change later. The filters are called by the
 service not the repository. I think this is fine for an in-memory store of data.
 
 For filtering I am using simple list comprehensions. This does not scale well but if the API scales
@@ -20,4 +50,4 @@ I added sorting because there is pagination. This makes it more reproducible.
 
 ### Summary endpoint
 
-Normally I would implement a service for the summary that also gets the repository as a dependency. 
+Normally, I would implement a service for the summary that also gets the repository as a dependency. I now added this functionality to the order service.
