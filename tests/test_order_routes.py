@@ -3,7 +3,7 @@ from typing import Any
 import pytest
 from fastapi.testclient import TestClient
 
-from order_api.routes import API_VERSION_PREFIX
+from order_api.routes import ORDERS_API_PREFIX
 
 _TWO_VALID_ORDERS = [
     {
@@ -101,7 +101,7 @@ _TWO_ORDERS_WITH_DUPLICATE_ORDER_ID = [
     },
 ]
 
-_BATCH_ORDER_URL = f"{API_VERSION_PREFIX}/batch"
+_BATCH_ORDER_URL = f"{ORDERS_API_PREFIX}/batch"
 
 
 # --- Tests ---
@@ -195,4 +195,63 @@ def test_order_validation_bulk_order_endpoint(
     assert response.status_code == 200
 
     # AND the correct response body is returned
+    assert response.json() == expected_response
+
+
+@pytest.mark.parametrize(
+    ("query_params", "expected_response"),
+        [
+            (
+                {
+                    "min_total": 10,
+                    "max_total": 200_000,
+                    "category": "electronics",
+                    "customer_id": "CUST-8834",
+                    "limit": 5,
+                    "offset": 0
+                }, {
+                        'orders': [
+                            {
+                    'currency': 'USD',
+                    'customer_id': 'CUST-8834',
+                    'items': [
+                        {
+                            'category': 'furniture',
+                            'quantity': 1,
+                            'sku': 'GAMING-CHAIR-PRO',
+                            'unit_price': '349.00',
+                        },
+                        {
+                            'category': 'electronics',
+                            'quantity': 1,
+                            'sku': 'GAMING-HEADSET-7.1',
+                            'unit_price': '89.99',
+                        },
+                        {
+                            'category': 'accessories',
+                            'quantity': 1,
+                            'sku': 'MOUSEPAD-XL',
+                            'unit_price': '29.99',
+                        },
+                    ],
+                    'order_id': 'ORD-0013',
+                    'order_timestamp': '2024-06-07T08:40:00Z',
+                    'order_total': '468.98',
+                },
+        ],
+        'total': 1 }),]
+)
+def test_get_orders_endpoint(client: TestClient, demo_repository: None, query_params: dict[str, Any], expected_response: dict[str, Any]) -> None:
+    del demo_repository  # only neede for side-effect of clearing the cache before each test
+    # GIVEN a test client <client>
+
+    # WHEN the get orders endpoint is called
+    response = client.get(
+        f"{ORDERS_API_PREFIX}/",
+        params=query_params)
+
+    # THEN the response status code is 200
+    assert response.status_code == 200
+
+    # AND the correct response body is returned (empty list)
     assert response.json() == expected_response

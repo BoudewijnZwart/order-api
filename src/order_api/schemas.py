@@ -29,6 +29,7 @@ class Item(BaseModel):
     @field_validator("category")
     @classmethod
     def normalize_category(cls, v: str) -> str:
+        """Normalize the category by making is all lowercase."""
         return v.lower()
 
 
@@ -41,9 +42,17 @@ class Order(BaseModel):
     items: list[Item] = Field(min_length=1)
     currency: str
 
-    @computed_field
+    @computed_field  # type: ignore[prop-decorator]
+    @property
     def order_total(self) -> Decimal:
         """Calculate the total price of the order."""
         return sum(  # type: ignore[return-value]
             item.quantity * item.unit_price for item in self.items
         )
+
+
+class OrderList(BaseModel):
+    """List of orders with total attribute."""
+
+    total: int
+    orders: list[Order]

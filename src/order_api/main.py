@@ -11,7 +11,7 @@ def main() -> None:
     import uvicorn  # noqa: PLC0415
 
     uvicorn.run(
-        "main:app",
+        "order_api.main:app",
         host="127.0.0.1",
         port=8000,
         reload=True,
